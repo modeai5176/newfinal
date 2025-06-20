@@ -35,7 +35,7 @@ const Header = memo(function Header() {
             className="font-bold font-sora flex items-center"
           >
             <Image src="/logo2.png" alt="ModeAI logo" width={70} height={70} />
-            <span className="text-2xl text-white px-2">ModeAI</span>
+            <span className="text-3xl text-white px-2">ModeAI</span>
           </Link>
 
           {/* Desktop Navigation with StarBorder */}
