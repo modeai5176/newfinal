@@ -112,7 +112,7 @@ const HomePage = memo(function HomePage() {
             color={[0.4, 0.2, 0.9]}
             amplitude={0.7}
             distance={0.15}
-            enableMouseInteraction={true}
+            enableMouseInteraction={false}
           />
         </div>
 
