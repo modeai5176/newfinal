@@ -4,7 +4,6 @@ import { useParams } from "next/navigation"
 import Link from "next/link"
 import { Calendar, User, Clock, ArrowLeft, ArrowRight } from "lucide-react"
 import Image from "next/image"
-import SplashCursor from "../../components/SplashCursor"
 import parse from 'html-react-parser'
 
 const blogPosts = {

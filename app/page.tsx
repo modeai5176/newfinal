@@ -5,6 +5,7 @@ import { ArrowRight, Zap, Brain, Cog, ChevronRight, Calendar, User, Clock } from
 import { useEffect, useState, useCallback, useMemo, useRef, memo } from "react"
 import StarBorder from "./components/StarBorder"
 import WhyChooseModeAI from "./components/WhyChooseModeAI"
+import Threads from "./components/Threads"
 
 const HomePage = memo(function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -106,8 +107,14 @@ const HomePage = memo(function HomePage() {
     <div className="bg-gradient-to-b from-primary-bg via-primary-secondary to-primary-bg">
       {/* Hero Section */}
       <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-20">
-        {/* Simplified Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,46,197,0.08),transparent_70%)]"></div>
+        <div className="absolute inset-0 z-0">
+          <Threads
+            color={[0.4, 0.2, 0.9]}
+            amplitude={0.7}
+            distance={0.15}
+            enableMouseInteraction={true}
+          />
+        </div>
 
         {/* Content */}
         <div className="container mx-auto px-6 relative z-10">
