@@ -198,7 +198,6 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="bg-gradient-to-b from-primary-bg via-primary-secondary to-primary-bg min-h-screen pt-20">
-        <SplashCursor />
         <div className="container mx-auto px-6 py-20 text-center">
           <h1 className="text-4xl font-bold font-sora text-text-primary mb-4">Post Not Found</h1>
           <p className="text-text-muted mb-8">The blog post you're looking for doesn't exist.</p>
@@ -216,8 +215,6 @@ export default function BlogPost() {
 
   return (
     <div className="bg-gradient-to-b from-primary-bg via-primary-secondary to-primary-bg">
-      <SplashCursor />
-
       <div className="pt-20">
         {/* Hero Section */}
         <section className="py-20 relative overflow-hidden">
