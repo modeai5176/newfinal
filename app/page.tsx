@@ -6,11 +6,13 @@ import { useEffect, useState, useCallback, useMemo, useRef, memo } from "react"
 import StarBorder from "./components/StarBorder"
 import WhyChooseModeAI from "./components/WhyChooseModeAI"
 import Threads from "./components/Threads"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const HomePage = memo(function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
   const [currentBlog, setCurrentBlog] = useState(0)
   const blogIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     setIsVisible(true)
@@ -110,7 +112,7 @@ const HomePage = memo(function HomePage() {
         <div className="absolute inset-0 z-0">
           <Threads
             color={[0.4, 0.2, 0.9]}
-            amplitude={0.7}
+            amplitude={isMobile ? 0.24 : 0.7}
             distance={0.15}
             enableMouseInteraction={false}
           />
