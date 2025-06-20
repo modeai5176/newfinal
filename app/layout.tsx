@@ -94,9 +94,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/logo2.png',
-    shortcut: '/logo2.png',
-    apple: '/logo2.png',
+    icon: '/logo_transparent.png',
+    shortcut: '/logo_transparent.png',
+    apple: '/logo_transparent.png',
   },
 }
 
