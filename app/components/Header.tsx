@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useState, useCallback, memo } from "react"
 import { Menu, X } from "lucide-react"
@@ -29,15 +30,13 @@ const Header = memo(function Header() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo with StarBorder */}
-          <StarBorder
-            as={Link}
+          <Link
             href="/"
-            className="font-bold font-sora hover:shadow-primary-glow transition-all duration-300"
-            color="#FF2EC5"
-            speed="2s"
+            className="font-bold font-sora flex items-center"
           >
-            <span className="text-2xl gradient-text px-2">ModeAI</span>
-          </StarBorder>
+            <Image src="/images/logo.webp" alt="ModeAI logo" width={70} height={70} />
+            <span className="text-2xl text-white px-2">ModeAI</span>
+          </Link>
 
           {/* Desktop Navigation with StarBorder */}
           <nav className="hidden md:block">
