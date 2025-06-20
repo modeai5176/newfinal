@@ -34,7 +34,7 @@ const Header = memo(function Header() {
             href="/"
             className="font-bold font-sora flex items-center"
           >
-            <Image src="/images/logo.webp" alt="ModeAI logo" width={70} height={70} />
+            <Image src="/logo2.png" alt="ModeAI logo" width={70} height={70} />
             <span className="text-2xl text-white px-2">ModeAI</span>
           </Link>
 
