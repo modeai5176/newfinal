@@ -73,6 +73,9 @@ const config: Config = {
         "vivid-green": "#2EFF71",
         "vivid-blue": "#3B9EFF",
       },
+      screens: {
+        'custom': '1180px',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

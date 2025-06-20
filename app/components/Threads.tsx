@@ -23,7 +23,7 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 40;
+uniform int u_line_count;
 const float u_line_width = 7.0;
 const float u_line_blur = 10.0;
 
@@ -123,12 +123,14 @@ const Threads = ({
   amplitude = 1,
   distance = 0,
   enableMouseInteraction = false,
+  lineCount = 40,
   ...rest
 }: {
   color?: [number, number, number];
   amplitude?: number;
   distance?: number;
   enableMouseInteraction?: boolean;
+  lineCount?: number;
   [key: string]: any;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -162,6 +164,7 @@ const Threads = ({
         uAmplitude: { value: amplitude },
         uDistance: { value: distance },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
+        u_line_count: { value: lineCount },
       },
     });
 
@@ -222,13 +225,14 @@ const Threads = ({
         container.removeEventListener("mousemove", handleMouseMove as EventListener);
         container.removeEventListener("mouseleave", handleMouseLeave as EventListener);
       }
-      if (gl.canvas.parentNode === container) {
-        container.removeChild(gl.canvas);
+      if (containerRef.current) {
+        const container = containerRef.current;
+        if (gl.canvas.parentNode === container) {
+          container.removeChild(gl.canvas);
+        }
       }
-      // The following line causes a linter error and is commented out.
-      // gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [color, amplitude, distance, enableMouseInteraction]);
+  }, [color, amplitude, distance, enableMouseInteraction, lineCount]);
 
   return <div ref={containerRef} className="w-full h-full relative" {...rest} />;
 };

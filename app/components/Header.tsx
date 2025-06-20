@@ -39,7 +39,7 @@ const Header = memo(function Header() {
           </Link>
 
           {/* Desktop Navigation with StarBorder */}
-          <nav className="hidden md:block">
+          <nav className="hidden custom:block">
             <StarBorder
               className="font-bold font-poppins hover:shadow-primary-glow transition-all duration-300"
               color="#29FFE3"
@@ -61,7 +61,7 @@ const Header = memo(function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden custom:block">
             <StarBorder
               as={Link}
               href="/contact"
@@ -75,7 +75,7 @@ const Header = memo(function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden bg-primary-bg/95 backdrop-blur-md border border-border-gray rounded-2xl p-3 text-text-primary shadow-lg"
+            className="block custom:hidden bg-primary-bg/95 backdrop-blur-md border border-border-gray rounded-2xl p-3 text-text-primary shadow-lg"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -85,7 +85,7 @@ const Header = memo(function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4">
+          <div className="block custom:hidden mt-4">
             <div className="bg-primary-bg/95 backdrop-blur-md border border-border-gray rounded-2xl shadow-lg overflow-hidden">
               <div className="flex flex-col py-4">
                 {navLinks.map((link) => (

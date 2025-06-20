@@ -131,7 +131,6 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-primary-bg border border-border-gray rounded-xl text-text-primary font-inter focus:outline-none focus:border-accent-purple transition-colors duration-300"
-                        placeholder="Your full name"
                       />
                     </div>
                     <div>
@@ -146,7 +145,6 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-primary-bg border border-border-gray rounded-xl text-text-primary font-inter focus:outline-none focus:border-accent-purple transition-colors duration-300"
-                        placeholder="your.email@company.com"
                       />
                     </div>
                   </div>
@@ -163,7 +161,6 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-primary-bg border border-border-gray rounded-xl text-text-primary font-inter focus:outline-none focus:border-accent-purple transition-colors duration-300"
-                        placeholder="Your company name"
                       />
                     </div>
                     <div>
@@ -177,7 +174,6 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-primary-bg border border-border-gray rounded-xl text-text-primary font-inter focus:outline-none focus:border-accent-purple transition-colors duration-300"
-                        placeholder="+91 98765 43210"
                       />
                     </div>
                   </div>
@@ -214,7 +210,6 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-primary-bg border border-border-gray rounded-xl text-text-primary font-inter focus:outline-none focus:border-accent-purple transition-colors duration-300 resize-vertical"
-                      placeholder="Tell us about your project and how we can help..."
                     />
                   </div>
 
