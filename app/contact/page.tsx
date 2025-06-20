@@ -99,7 +99,7 @@ export default function ContactPage() {
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(156,77,255,0.1),transparent_70%)]"></div>
           <div className="container mx-auto px-6 text-center relative z-10">
-            <h1 className="text-5xl md:text-7xl font-bold font-sora text-text-primary mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-bold font-sora text-text-primary mb-8 leading-tight">
               Get In <span className="gradient-text">Touch</span>
             </h1>
             <p className="text-xl text-text-muted font-inter max-w-3xl mx-auto leading-relaxed">

@@ -70,7 +70,7 @@ export default function AboutPage() {
       <section className="py-20 relative overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(166,134,209,0.1),transparent_70%)]"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold font-sora text-text-primary mb-8 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-bold font-sora text-text-primary mb-8 leading-tight">
             Our Story: Empowering Businesses with
             <br />
             <span className="gradient-text">Intelligent Automation</span>
