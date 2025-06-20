@@ -123,7 +123,7 @@ const HomePage = memo(function HomePage() {
           >
             {/* Main Heading */}
             <div className="flex justify-center items-center mb-12">
-              <h1 className="text-4xl md:text-7xl font-bold font-sora leading-tight gradient-text max-w-5xl text-center">
+              <h1 className="text-4xl md:text-7xl font-bold font-sora leading-tight text-white max-w-5xl text-center">
                 Where Every Mode
                 <br />
                 is Magic
