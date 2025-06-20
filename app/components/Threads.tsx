@@ -1,5 +1,12 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
+
+interface ThreadsProps {
+  color?: [number, number, number];
+  amplitude?: number;
+  distance?: number;
+  enableMouseInteraction?: boolean;
+}
 
 const vertexShader = `
 attribute vec2 position;
@@ -23,7 +30,7 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-uniform int u_line_count;
+const int u_line_count = 40;
 const float u_line_width = 7.0;
 const float u_line_blur = 10.0;
 
@@ -118,23 +125,15 @@ void main() {
 }
 `;
 
-const Threads = ({
+const Threads: React.FC<ThreadsProps> = ({
   color = [1, 1, 1],
   amplitude = 1,
   distance = 0,
   enableMouseInteraction = false,
-  lineCount = 40,
   ...rest
-}: {
-  color?: [number, number, number];
-  amplitude?: number;
-  distance?: number;
-  enableMouseInteraction?: boolean;
-  lineCount?: number;
-  [key: string]: any;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameId = useRef<number>();
+  const animationFrameId = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -164,7 +163,6 @@ const Threads = ({
         uAmplitude: { value: amplitude },
         uDistance: { value: distance },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
-        u_line_count: { value: lineCount },
       },
     });
 
@@ -193,8 +191,8 @@ const Threads = ({
       targetMouse = [0.5, 0.5];
     }
     if (enableMouseInteraction) {
-      container.addEventListener("mousemove", handleMouseMove as EventListener);
-      container.addEventListener("mouseleave", handleMouseLeave as EventListener);
+      container.addEventListener("mousemove", handleMouseMove);
+      container.addEventListener("mouseleave", handleMouseLeave);
     }
 
     function update(t: number) {
@@ -216,25 +214,22 @@ const Threads = ({
     animationFrameId.current = requestAnimationFrame(update);
 
     return () => {
-      if (animationFrameId.current) {
+      if (animationFrameId.current)
         cancelAnimationFrame(animationFrameId.current);
-      }
       window.removeEventListener("resize", resize);
 
       if (enableMouseInteraction) {
-        container.removeEventListener("mousemove", handleMouseMove as EventListener);
-        container.removeEventListener("mouseleave", handleMouseLeave as EventListener);
+        container.removeEventListener("mousemove", handleMouseMove);
+        container.removeEventListener("mouseleave", handleMouseLeave);
       }
-      if (containerRef.current) {
-        const container = containerRef.current;
-        if (gl.canvas.parentNode === container) {
-          container.removeChild(gl.canvas);
-        }
-      }
+      if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [color, amplitude, distance, enableMouseInteraction, lineCount]);
+  }, [color, amplitude, distance, enableMouseInteraction]);
 
-  return <div ref={containerRef} className="w-full h-full relative" {...rest} />;
+  return (
+    <div ref={containerRef} className="w-full h-full relative" {...rest} />
+  );
 };
 
 export default Threads; 
