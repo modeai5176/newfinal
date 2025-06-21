@@ -2,12 +2,13 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useCallback, memo } from "react"
+import { useState, useCallback, memo, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import StarBorder from "./StarBorder"
 
 const Header = memo(function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -16,6 +17,17 @@ const Header = memo(function Header() {
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact Us" },
   ]
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 10)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev)
@@ -26,7 +38,11 @@ const Header = memo(function Header() {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-6">
+    <header className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-primary-bg/80 backdrop-blur-md border-b border-border-gray/50 shadow-lg' 
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo with StarBorder */}
@@ -75,7 +91,11 @@ const Header = memo(function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="block custom:hidden bg-primary-bg/95 backdrop-blur-md border border-border-gray rounded-2xl p-3 text-text-primary shadow-lg"
+            className={`block custom:hidden border border-border-gray rounded-2xl p-3 text-text-primary shadow-lg transition-all duration-300 ${
+              isScrolled 
+                ? 'bg-primary-bg/90 backdrop-blur-md' 
+                : 'bg-primary-bg/95 backdrop-blur-md'
+            }`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
