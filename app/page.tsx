@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback, useMemo, useRef, memo } from "react"
 import StarBorder from "./components/StarBorder"
 import WhyChooseModeAI from "./components/WhyChooseModeAI"
 import Threads from "./components/Threads"
+import SpotlightText from "./components/SpotlightText"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 const HomePage = memo(function HomePage() {
@@ -125,11 +126,11 @@ const HomePage = memo(function HomePage() {
           >
             {/* Main Heading */}
             <div className="flex justify-center items-center mb-12">
-              <h1 className="text-4xl md:text-7xl font-bold font-sora leading-tight text-white max-w-5xl text-center">
+              <SpotlightText className="text-4xl md:text-7xl font-bold font-sora leading-tight text-white max-w-5xl text-center">
                 Where Every Mode
                 <br />
                 is Magic
-              </h1>
+              </SpotlightText>
             </div>
 
             {/* Buttons */}

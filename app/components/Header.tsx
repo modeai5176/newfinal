@@ -40,7 +40,7 @@ const Header = memo(function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-primary-bg/80 backdrop-blur-md border-b border-border-gray/50 shadow-lg' 
+        ? 'bg-primary-bg/85 shadow-xl' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto">
@@ -91,10 +91,10 @@ const Header = memo(function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`block custom:hidden border border-border-gray rounded-2xl p-3 text-text-primary shadow-lg transition-all duration-300 ${
+            className={`block custom:hidden border border-border-gray/30 rounded-2xl p-3 text-text-primary shadow-lg transition-all duration-300 ${
               isScrolled 
-                ? 'bg-primary-bg/90 backdrop-blur-md' 
-                : 'bg-primary-bg/95 backdrop-blur-md'
+                ? 'bg-primary-bg/95' 
+                : 'bg-primary-bg/90'
             }`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
@@ -106,7 +106,7 @@ const Header = memo(function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="block custom:hidden mt-4">
-            <div className="bg-primary-bg/95 backdrop-blur-md border border-border-gray rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-primary-bg/95 border border-border-gray/30 rounded-2xl shadow-lg overflow-hidden">
               <div className="flex flex-col py-4">
                 {navLinks.map((link) => (
                   <Link
