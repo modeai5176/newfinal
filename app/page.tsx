@@ -8,6 +8,7 @@ import WhyChooseModeAI from "./components/WhyChooseModeAI"
 import Threads from "./components/Threads"
 import SpotlightText from "./components/SpotlightText"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { motion } from "framer-motion"
 
 const threadsColor: [number, number, number] = [0.4, 0.2, 0.9];
 
@@ -91,7 +92,7 @@ const HomePage = memo(function HomePage() {
     if (blogIntervalRef.current) clearInterval(blogIntervalRef.current)
     blogIntervalRef.current = setInterval(() => {
       setCurrentBlog((prev) => (prev + 1) % blogPosts.length)
-    }, 3000)
+    }, 4000)
     return () => {
       if (blogIntervalRef.current) clearInterval(blogIntervalRef.current)
     }
@@ -104,7 +105,7 @@ const HomePage = memo(function HomePage() {
       clearInterval(blogIntervalRef.current)
       blogIntervalRef.current = setInterval(() => {
         setCurrentBlog((prev) => (prev + 1) % blogPosts.length)
-      }, 3000)
+      }, 4000)
     }
   }, [blogPosts.length])
 
@@ -211,9 +212,10 @@ const HomePage = memo(function HomePage() {
           {/* Blog Carousel */}
           <div className="relative max-w-4xl mx-auto mb-16">
             <div className="overflow-hidden rounded-3xl">
-              <div
-                className="flex transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${currentBlog * 100}%)` }}
+              <motion.div
+                className="flex"
+                animate={{ x: `-${currentBlog * 100}%` }}
+                transition={{ duration: 0.6, ease: 'easeInOut' }}
               >
                 {blogPosts.map((post, index) => (
                   <div key={index} className="w-full flex-shrink-0">
@@ -256,7 +258,7 @@ const HomePage = memo(function HomePage() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             {/* Carousel Controls */}
