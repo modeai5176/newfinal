@@ -43,7 +43,7 @@ const SpotlightText = ({ children, className = "" }: SpotlightTextProps) => {
         position: "relative",
         display: "inline-block",
         backgroundImage: isHovered
-          ? `radial-gradient(circle 200px at ${mousePosition.x}px ${mousePosition.y}px, #A686D1 0%, white 60%)`
+          ? `radial-gradient(circle 200px at ${mousePosition.x}px ${mousePosition.y}px, #ec4899 0%, #8b5cf6 50%, white 80%)`
           : "none",
         backgroundClip: isHovered ? "text" : "none",
         WebkitBackgroundClip: isHovered ? "text" : "none",
