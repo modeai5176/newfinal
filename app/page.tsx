@@ -9,6 +9,8 @@ import Threads from "./components/Threads"
 import SpotlightText from "./components/SpotlightText"
 import { useIsMobile } from "@/hooks/use-mobile"
 
+const threadsColor: [number, number, number] = [0.4, 0.2, 0.9];
+
 const HomePage = memo(function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
   const [currentBlog, setCurrentBlog] = useState(0)
@@ -112,7 +114,7 @@ const HomePage = memo(function HomePage() {
       <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <Threads
-            color={[0.4, 0.2, 0.9]}
+            color={threadsColor}
             amplitude={isMobile ? 0.24 : 0.7}
             distance={0.15}
             enableMouseInteraction={false}
