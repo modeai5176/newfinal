@@ -8,9 +8,23 @@ import WhyChooseModeAI from "./components/WhyChooseModeAI"
 import Threads from "./components/Threads"
 import SpotlightText from "./components/SpotlightText"
 import { useIsMobile } from "@/hooks/use-mobile"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 const threadsColor: [number, number, number] = [0.4, 0.2, 0.9];
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 15,
+      stiffness: 100,
+      delay: i * 0.15,
+    },
+  }),
+};
 
 const HomePage = memo(function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -166,8 +180,13 @@ const HomePage = memo(function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={cardVariants}
                 className="glass-card-strong border border-white/10 rounded-2xl p-8 hover:shadow-card-glow transition-all duration-300 group"
               >
                 <div
@@ -177,7 +196,7 @@ const HomePage = memo(function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold font-poppins text-text-primary mb-4">{service.title}</h3>
                 <p className="text-text-muted font-inter leading-relaxed">{service.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
