@@ -49,12 +49,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "ModeAI - Soulful Automation & AI Solutions",
-    template: "%s | ModeAI"
+    default: "Mode AI",
+    template: "%s | Mode AI"
   },
   description: "Next-generation AI agents and intelligent business automation with human-centric design. Transform your business with ModeAI's custom AI solutions.",
   generator: "Next.js",
-  applicationName: "ModeAI",
+  applicationName: "Mode AI",
   referrer: "origin-when-cross-origin",
   keywords: ["AI automation", "business automation", "AI agents", "digital transformation", "ModeAI"],
   authors: [{ name: "ModeAI Team" }],
@@ -73,13 +73,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://modeai.co',
-    title: 'ModeAI - Soulful Automation & AI Solutions',
+    title: 'Mode AI',
     description: 'Next-generation AI agents and intelligent business automation with human-centric design',
-    siteName: 'ModeAI',
+    siteName: 'Mode AI',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ModeAI - Soulful Automation & AI Solutions',
+    title: 'Mode AI',
     description: 'Next-generation AI agents and intelligent business automation with human-centric design',
   },
   robots: {
