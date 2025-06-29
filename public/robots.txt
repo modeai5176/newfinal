@@ -1,0 +1,14 @@
+# robots.txt for https://www.mode-ai.co/
+
+# Allow all crawlers full access to the site
+User-agent: *
+Allow: /
+
+# Disallow access to admin or backend pages (if any exist)
+Disallow: /wp-admin/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cgi-bin/
+
+# Point to your sitemap
+Sitemap: https://www.mode-ai.co/sitemap.xml 

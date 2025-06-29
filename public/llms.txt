@@ -1,0 +1,28 @@
+User-Agent: *
+Allow: /
+
+# You may also specify permissions for specific LLM developers:
+
+User-Agent: OpenAI
+Allow: /
+
+User-Agent: Anthropic
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Perplexity
+Allow: /
+
+User-Agent: Cohere
+Allow: /
+
+User-Agent: Mistral
+Allow: /
+
+User-Agent: Meta
+Allow: /
+
+User-Agent: xAI
+Allow: / 
